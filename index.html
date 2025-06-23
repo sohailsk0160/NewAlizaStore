@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliza Store - Under Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .construction-icon {
+            animation: bounce 2s infinite alternate;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e0e0e0;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            width: 75%; /* Change this value to reflect actual progress */
+            animation: progressAnimation 3s ease-in-out infinite;
+        }
+        
+        .whatsapp-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        
+        @keyframes progressAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+    <div class="max-w-3xl w-full bg-white rounded-xl shadow-2xl overflow-hidden pulse">
+        <div class="bg-gradient-to-r from-blue-500 to-cyan-400 p-6 text-white text-center">
+            <div class="construction-icon inline-block mb-4">
+                <i class="fas fa-tools text-5xl"></i>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Aliza Store</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-2">Website Under Construction</h2>
+            <p class="opacity-90">We're working hard to bring you an amazing shopping experience!</p>
+        </div>
+        
+        <div class="p-6 md:p-8">
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold mb-2 text-gray-800">Progress</h2>
+                <div class="progress-bar mb-2">
+                    <div class="progress-bar-fill"></div>
+                </div>
+                <p class="text-sm text-gray-600">Currently at 75% completion</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-medium mb-4 text-gray-800 flex items-center">
+                        <i class="fas fa-user-tie mr-2 text-blue-500"></i> About The Owner
+                    </h3>
+                    <p class="text-gray-600 mb-4">This website is owned by:</p>
+                    <p class="text-blue-600 font-medium">Shahid Shaikh</p>
+                    <p class="text-sm text-gray-500 mt-1">Visionary behind this project</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-medium mb-4 text-gray-800 flex items-center">
+                        <i class="fas fa-code mr-2 text-green-500"></i> Development Team
+                    </h3>
+                    <p class="text-gray-600 mb-4">Skillfully crafted by:</p>
+                    <p class="text-green-600 font-medium">Sohail Shaikh</p>
+                    <p class="text-sm text-gray-500 mt-1">Web developer & designer</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-exclamation-circle text-yellow-400"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-yellow-700">
+                            We're actively working on the site. For urgent inquiries, please contact us via WhatsApp.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a id="whatsappContact" href="https://wa.me/15551234567" target="_blank" 
+                   class="whatsapp-btn inline-flex items-center px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg shadow-md">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                    Contact Us on WhatsApp
+                </a>
+                <p class="text-xs text-gray-500 mt-2">Click to open chat directly in WhatsApp</p>
+            </div>
+        </div>
+        
+        <div class="bg-gray-100 py-4 px-6 text-center text-sm text-gray-600">
+            <p>© <span id="currentYear"></span> All Rights Reserved. Stay tuned for our launch!</p>
+        </div>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Animation for progress bar
+        const progressFill = document.querySelector('.progress-bar-fill');
+        setInterval(() => {
+            progressFill.style.width = `${Math.floor(Math.random() * 10) + 70}%`;
+        }, 3000);
+        
+        // WhatsApp number configuration (replace with actual number)
+        const whatsappNumber = "7021081648"; // Replace with real number
+        const whatsappMessage = "Hello! I have a question about your website (Aliza Store) under construction.";
+        document.getElementById('whatsappContact').href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        // Easter egg - confetti on click
+        const constructionIcon = document.querySelector('.construction-icon');
+        constructionIcon.addEventListener('click', () => {
+            alert("👷‍♂️ Thanks for checking out our construction site! We'll be ready soon!");
+        });
+    </script>
+</body>
+</html>
